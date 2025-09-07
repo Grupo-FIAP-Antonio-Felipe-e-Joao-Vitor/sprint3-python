@@ -37,6 +37,9 @@ def menuCadastro():
         print("Este email já está sendo usado.")
         email = input("Digite outro email: ")
         gerenciarEscolha(email, "menuCadastro")
+        while (emailValido(email) == False):
+            email = str(input("Digite um email válido (ex: email@email.com): "))
+            gerenciarEscolha(email, "menuCadastro")
 
     senha = str(input("Digite sua senha: "))
     gerenciarEscolha(senha, "menuCadastro")
@@ -45,7 +48,7 @@ def menuCadastro():
         senha = str(input("Digite uma senha forte: "))
         gerenciarEscolha(senha, "menuCadastro")
 
-    novoUsuario = [nome, idade, email, senha]
+    novoUsuario = [nome, idade, email, senha, "user", None]
     usuarios.append(novoUsuario)
     emailUsuarios.append(email)
     senhaUsuarios.append(senha)

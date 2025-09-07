@@ -1,24 +1,22 @@
 from src.menu.cabecalho import cabecalho
-from src.menu.menuEntrar import usuarioLogado
+from src.dados.usuarios import usuarioLogado
 from src.menu.gerenciarEscolha import gerenciarEscolha
-from src.dados.usuarios import usuarios
 
 def menuPrincipal():
-    contaAdm = usuarios[0]
+    contaAdm = True if usuarioLogado[0][4] == "adm" else False
     nome = usuarioLogado[0][0]
 
-    conta = usuarioLogado[0]
-    if conta == contaAdm:
+    if contaAdm:
         cabecalho(f"BEM-VINDO DE VOLTA {nome.upper()}")
         print("[1] Mostrar usuários cadastrados")
-        print("[2] Monitorar torneios")
+        print("[2] Gerenciar torneios")
         print("[Q] Sair")
         escolha = str(input("O que quer fazer: "))
         gerenciarEscolha(escolha, "painelADM")
     else:
         cabecalho(f"BEM-VINDO DE VOLTA {nome.upper()}")
-        print("[1] Sobre torneios")
-        print("[2] Se inscrever em torneios")
+        print("[1] Torneios")
+        print("[2] Ver perfil")
         print("[Q] Sair")
         escolha = str(input("O que quer fazer: "))
         gerenciarEscolha(escolha, "menuPrincipal")

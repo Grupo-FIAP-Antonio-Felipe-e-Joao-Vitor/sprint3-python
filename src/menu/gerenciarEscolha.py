@@ -43,7 +43,9 @@ def gerenciarEscolha(escolha, menu):
             case "1":
                 pass
             case "2":
-                pass
+                limparTerminal()
+                from src.menu.verPerfil import verPerfil
+                verPerfil()
             case "q":
                 confirmar = str(input("Tem certeza de que deseja sair? [S/N]: "))
                 if confirmar.lower() == "s":
@@ -69,7 +71,9 @@ def gerenciarEscolha(escolha, menu):
                 from src.menu.mostrarUsuarios import mostrarUsuarios
                 mostrarUsuarios()
             case "2":
-                pass
+                limparTerminal()
+                from src.menu.gerenciarTorneios import gerenciarTorneios
+                gerenciarTorneios()
             case "q":
                 confirmar = str(input("Tem certeza de que deseja sair? [S/N]: "))
                 if confirmar.lower() == "s":
@@ -94,3 +98,42 @@ def gerenciarEscolha(escolha, menu):
                 limparTerminal()
                 from src.menu.menuPrincipal import menuPrincipal
                 menuPrincipal()
+
+    if menu == "verPerfil":
+        match escolha.lower():
+            case "v":
+                limparTerminal()
+                from src.menu.menuPrincipal import menuPrincipal
+                menuPrincipal()
+    if menu == "gerenciarTorneios":
+        match escolha.lower():
+            case "1":
+                limparTerminal()
+                from src.torneios.mostrarTorneios import mostrarTorneios
+                mostrarTorneios()
+            case "2":
+                limparTerminal()
+                from src.torneios.criarTorneios import criarTorneios
+                criarTorneios()
+            case "v":
+                limparTerminal()
+                from src.menu.menuPrincipal import menuPrincipal
+                menuPrincipal()
+            case _:
+                print("Escolha inválida. Tente novamente.")
+                time.sleep(1)
+                limparTerminal()
+                from src.menu.gerenciarTorneios import gerenciarTorneios
+                gerenciarTorneios()
+    if menu == "criarTorneios":
+        match escolha.lower():
+            case "v":
+                limparTerminal()
+                from src.menu.gerenciarTorneios import gerenciarTorneios
+                gerenciarTorneios()
+    if menu == "mostrarTorneios":
+        match escolha.lower():
+            case "v":
+                limparTerminal()
+                from src.menu.gerenciarTorneios import gerenciarTorneios
+                gerenciarTorneios()

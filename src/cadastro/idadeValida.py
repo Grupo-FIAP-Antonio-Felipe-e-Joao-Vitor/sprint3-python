@@ -1,7 +1,10 @@
 def idadeValida(idade):
     try:
         idade = int(idade)
-        return True
+        if idade > 0:
+            return True
+        else:
+            return False
     except ValueError:
         return False
 
