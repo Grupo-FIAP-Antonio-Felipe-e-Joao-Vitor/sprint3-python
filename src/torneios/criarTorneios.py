@@ -1,6 +1,7 @@
 from src.menu.cabecalho import cabecalho
 from src.dados.torneios import torneios
 from src.menu.gerenciarEscolha import gerenciarEscolha
+from src.torneios.dataValida import dataValida
 from src.torneios.qtdValida import qtdValida
 
 
@@ -21,9 +22,15 @@ def criarTorneios():
         qtdJogadoras = str(input("Digite uma quantidade de jogadores válida (ex: 5): "))
         gerenciarEscolha(qtdJogadoras, "criarTorneios")
 
+    ocorreraEm = str(input("Digite a data em que o torneio ocorrerá (dia/mês): "))
+    gerenciarEscolha(ocorreraEm, "criarTorneios")
+    while dataValida(ocorreraEm) == False:
+        ocorreraEm = str(input("Digite uma data válida (ex: 8/4): "))
+        gerenciarEscolha(ocorreraEm, "criarTorneios")
+
     novoTorneioId = len(torneios) + 1
 
-    novoTorneio = [novoTorneioId, qtdTimes, qtdJogadoras, True]
+    novoTorneio = {"id": novoTorneioId, "times": qtdTimes, "jogadoras": qtdJogadoras, "ativo": True, "ocorreraEm": ocorreraEm}
     torneios.append(novoTorneio)
 
     print("Torneio criado com sucesso!")

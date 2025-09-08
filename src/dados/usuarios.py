@@ -1,17 +1,18 @@
 usuarios = [
     # Nome    # Idade     # Email    # Senha    #role     #torneio
-    ["admin", 18, "admin@admin.com", "Admin@1234", "adm", None],
-    ["admin", 18, "adm", "adm", "adm", None],
-    ["user", 18, "user@user.com", "user@1234", "user", 1],
+    {"nome": "admin", "idade": 18, "email": "admin@admin.com", "senha": "Admin@1234", "role": "adm", "inscrito": None},
+    {"nome": "admin", "idade": 18, "email": "adm", "senha": "adm", "role": "adm", "inscrito": None},
+    {"nome": "user", "idade": 18, "email": "user@user.com", "senha": "user@1234", "role": "user", "inscrito": 1},
+    {"nome": "userTeste", "idade": 18, "email": "user", "senha": "user", "role": "user", "inscrito": None},
 ]
 
 emailUsuarios = []
 for usuario in usuarios:
-    emailUsuarios.append(usuario[2])
+    emailUsuarios.append(usuario["email"])
 
 
 senhaUsuarios = []
 for usuario in usuarios:
-    senhaUsuarios.append(usuario[3])
+    senhaUsuarios.append(usuario["senha"])
 
 usuarioLogado = []

@@ -41,7 +41,9 @@ def gerenciarEscolha(escolha, menu):
     if menu == "menuPrincipal":
         match escolha.lower():
             case "1":
-                pass
+                limparTerminal()
+                from src.menu.menuTorneios import menuTorneios
+                menuTorneios()
             case "2":
                 limparTerminal()
                 from src.menu.verPerfil import verPerfil
@@ -110,7 +112,7 @@ def gerenciarEscolha(escolha, menu):
             case "1":
                 limparTerminal()
                 from src.torneios.mostrarTorneios import mostrarTorneios
-                mostrarTorneios()
+                mostrarTorneios(True)
             case "2":
                 limparTerminal()
                 from src.torneios.criarTorneios import criarTorneios
@@ -131,9 +133,41 @@ def gerenciarEscolha(escolha, menu):
                 limparTerminal()
                 from src.menu.gerenciarTorneios import gerenciarTorneios
                 gerenciarTorneios()
-    if menu == "mostrarTorneios":
+    if menu == "mostrarTorneiosADM":
         match escolha.lower():
             case "v":
                 limparTerminal()
                 from src.menu.gerenciarTorneios import gerenciarTorneios
                 gerenciarTorneios()
+    if menu == "mostrarTorneiosUSER":
+        match escolha.lower():
+            case "v":
+                limparTerminal()
+                from src.menu.menuTorneios import menuTorneios
+                menuTorneios()
+    if menu == "menuTorneios":
+        match escolha.lower():
+            case "1":
+                limparTerminal()
+                from src.torneios.mostrarTorneios import mostrarTorneios
+                mostrarTorneios()
+            case "2":
+                limparTerminal()
+                from src.torneios.menuInscricaoTorneio import menuInscricaoTorneio
+                menuInscricaoTorneio()
+            case "v":
+                limparTerminal()
+                from src.menu.menuPrincipal import menuPrincipal
+                menuPrincipal()
+            case _:
+                print("Escolha inválida. Tente novamente.")
+                time.sleep(1)
+                limparTerminal()
+                from src.menu.menuTorneios import menuTorneios
+                menuTorneios()
+    if menu == "menuInscricaoTorneio":
+        match escolha.lower():
+            case "v":
+                limparTerminal()
+                from src.menu.menuTorneios import menuTorneios
+                menuTorneios()

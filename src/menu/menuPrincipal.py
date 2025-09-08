@@ -3,8 +3,8 @@ from src.dados.usuarios import usuarioLogado
 from src.menu.gerenciarEscolha import gerenciarEscolha
 
 def menuPrincipal():
-    contaAdm = True if usuarioLogado[0][4] == "adm" else False
-    nome = usuarioLogado[0][0]
+    contaAdm = True if usuarioLogado[0]["role"] == "adm" else False
+    nome = usuarioLogado[0]["nome"]
 
     if contaAdm:
         cabecalho(f"BEM-VINDO DE VOLTA {nome.upper()}")

@@ -48,7 +48,7 @@ def menuCadastro():
         senha = str(input("Digite uma senha forte: "))
         gerenciarEscolha(senha, "menuCadastro")
 
-    novoUsuario = [nome, idade, email, senha, "user", None]
+    novoUsuario = {"nome": nome, "idade": idade, "email": email, "senha": senha, "role": "user", "inscrito": None}
     usuarios.append(novoUsuario)
     emailUsuarios.append(email)
     senhaUsuarios.append(senha)
