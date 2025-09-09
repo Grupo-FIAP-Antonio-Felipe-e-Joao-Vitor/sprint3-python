@@ -1,6 +1,15 @@
 import string
 
-def senhaValida(senha):
+def senhaValida(senha: str) -> bool:
+    """
+       Verifica se a senha fornecida atende aos critérios de segurança:
+       pelo menos 8 caracteres, contendo pelo menos uma letra maiúscula,
+       uma letra minúscula, um número e um símbolo.
+
+       :param senha: Senha a ser validada.
+       :return: True se a senha for válida, False caso contrário.
+    """
+
     letrasMaiusculas = tuple(string.ascii_uppercase)
     letrasMinusculas = tuple(string.ascii_lowercase)
     numeros = tuple(string.digits)

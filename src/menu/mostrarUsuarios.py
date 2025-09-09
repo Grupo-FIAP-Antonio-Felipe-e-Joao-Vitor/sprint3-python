@@ -3,7 +3,14 @@ from src.menu.cabecalho import cabecalho
 from src.menu.gerenciarEscolha import gerenciarEscolha
 
 
-def mostrarUsuarios():
+def mostrarUsuarios() -> None:
+    """
+        Exibe uma tabela com todos os usuários cadastrados no sistema, mostrando
+        nome, idade, email, tipo de usuário e inscrições em torneios. Permite ao
+        usuário retornar ao menu anterior após visualizar a lista.
+
+        :return: None
+    """
     cabecalho("USUARIOS CADASTRADOS")
     print(f"{"NOME":<20} {"IDADE":<6} {"EMAIL":<20} {"TIPO DE USUARIO":<20} {"INSCRIÇÕES":<20}")
     print("-"*80)

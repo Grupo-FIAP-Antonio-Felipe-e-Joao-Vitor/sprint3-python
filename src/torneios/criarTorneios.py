@@ -5,7 +5,15 @@ from src.torneios.dataValida import dataValida
 from src.torneios.qtdValida import qtdValida
 
 
-def criarTorneios():
+def criarTorneios() -> None:
+    """
+       Exibe o menu de criação de torneios, solicita informações como quantidade
+       de times, quantidade de jogadoras por time e data do torneio, valida os
+       dados inseridos e registra um novo torneio no sistema.
+
+       :return: None
+    """
+
     cabecalho("CRIAR TORNEIO")
 
     print("[V] - Voltar para o menu inicial")

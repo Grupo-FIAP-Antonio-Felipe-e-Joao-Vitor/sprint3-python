@@ -3,7 +3,15 @@ from src.menu.cabecalho import cabecalho
 from src.menu.gerenciarEscolha import gerenciarEscolha
 
 
-def verPerfil():
+def verPerfil() -> None:
+    """
+        Exibe as informações do perfil do usuário logado, incluindo nome, idade,
+        email e informações sobre participação em torneios. Permite retornar ao
+        menu anterior após a visualização.
+
+        :return: None
+    """
+
     cabecalho("PERFIL")
 
     nome = usuarioLogado[0]["nome"]

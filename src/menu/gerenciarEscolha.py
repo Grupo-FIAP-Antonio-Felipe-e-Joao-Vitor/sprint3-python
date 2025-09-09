@@ -2,7 +2,17 @@ from src.menu.limparTerminal import limparTerminal
 
 import time
 
-def gerenciarEscolha(escolha, menu):
+def gerenciarEscolha(escolha: str, menu: str) -> None:
+    """
+        Gerencia as escolhas do usuário em diferentes menus do sistema e direciona
+        para a função correspondente de acordo com a opção selecionada.
+
+        :param escolha: Opção escolhida pelo usuário no menu.
+        :param menu: Nome do menu atual em que o usuário está navegando.
+        :return: None
+    """
+
+
     if menu == "menuInicial":
         match escolha.lower():
             case "1":

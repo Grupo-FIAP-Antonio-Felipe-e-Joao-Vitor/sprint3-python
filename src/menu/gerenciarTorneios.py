@@ -2,7 +2,14 @@ from src.menu.cabecalho import cabecalho
 from src.menu.gerenciarEscolha import gerenciarEscolha
 
 
-def gerenciarTorneios():
+def gerenciarTorneios() -> None:
+    """
+        Exibe o menu de gerenciamento de torneios e direciona a escolha do usuário
+        para a ação correspondente (listar, criar, encerrar ou voltar ao menu inicial).
+
+        :return: None
+    """
+
     cabecalho("TORNEIOS")
 
     print("[1] - Torneios")

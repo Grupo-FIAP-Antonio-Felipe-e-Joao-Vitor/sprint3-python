@@ -9,7 +9,16 @@ from src.torneios.idValido import idValido
 import time
 
 
-def menuInscricaoTorneio():
+def menuInscricaoTorneio() -> None:
+    """
+        Exibe o menu de inscrição em torneios para o usuário logado. Permite
+        verificar se o usuário já está inscrito, escolher um torneio válido e
+        inscrever-se individualmente ou com um time completo. Valida os dados
+        fornecidos durante o processo de inscrição.
+
+        :return: None
+    """
+
     cabecalho("INSCRIÇÕES")
 
     if usuarioLogado[0]["inscrito"] != None:

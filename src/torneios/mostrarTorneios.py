@@ -3,7 +3,17 @@ from src.dados.torneios import torneios
 from src.menu.gerenciarEscolha import gerenciarEscolha
 
 
-def mostrarTorneios(painelADM = False):
+def mostrarTorneios(painelADM: bool = False) -> None:
+    """
+        Exibe uma lista de todos os torneios cadastrados, mostrando informações
+        como ID, número de times, quantidade de jogadoras por time, status, data
+        do torneio e inscritos. Permite retornar ao menu anterior, diferenciado
+        entre painel de administrador e usuário comum.
+
+        :param painelADM: Define se a visualização é no painel do administrador.
+        :return: None
+    """
+
     cabecalho("TORNEIOS")
 
     if len(torneios) > 0:

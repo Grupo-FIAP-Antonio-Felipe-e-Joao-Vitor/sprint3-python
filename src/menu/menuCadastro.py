@@ -6,13 +6,17 @@ from src.cadastro.senhaValida import senhaValida
 from src.cadastro.idadeValida import idadeValida
 from src.dados.usuarios import usuarios, emailUsuarios, senhaUsuarios
 
-def menuCadastro():
+def menuCadastro() -> None:
+    """
+        Exibe o menu de cadastro de usuários, coleta as informações necessárias
+        (nome, idade, email e senha), valida os dados inseridos e registra um novo
+        usuário no sistema caso todas as verificações sejam concluídas com sucesso.
+
+        :return: None
+    """
     cabecalho("CADASTRE-SE")
 
-    nome = ""
     idade = ""
-    email = ""
-    senha = ""
 
     print("[V] - Voltar para o menu inicial")
 

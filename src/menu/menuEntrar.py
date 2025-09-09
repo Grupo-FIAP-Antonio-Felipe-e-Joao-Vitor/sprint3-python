@@ -4,7 +4,14 @@ from src.menu.gerenciarEscolha import gerenciarEscolha
 from src.menu.limparTerminal import limparTerminal
 
 
-def menuEntrar():
+def menuEntrar() -> None:
+    """
+        Exibe o menu de login, solicitando email e senha do usuário.
+        Valida as credenciais inseridas e, caso estejam corretas, autentica o usuário
+        no sistema e redireciona para o menu principal.
+
+        :return: None
+    """
     cabecalho("ENTRAR")
 
     print("[V] - Voltar para o menu inicial")

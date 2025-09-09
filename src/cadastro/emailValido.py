@@ -1,4 +1,12 @@
-def emailValido(email):
+def emailValido(email: str) -> bool:
+    """
+        Verifica se um email possui um formato válido, contendo '@', ponto no
+        domínio e final '.com'.
+
+        :param email: Email a ser validado.
+        :return: True se o email for válido, False caso contrário.
+    """
+
     emailFormatado = email.strip()
     if not "@" in emailFormatado:
         return False

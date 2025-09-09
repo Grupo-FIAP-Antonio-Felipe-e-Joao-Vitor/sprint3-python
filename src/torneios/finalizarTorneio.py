@@ -4,7 +4,14 @@ from src.torneios.idValido import idValido
 from src.dados.torneios import torneios
 
 
-def finalizarTorneio():
+def finalizarTorneio() -> None:
+    """
+       Finaliza um torneio específico selecionado pelo usuário, atualizando seu
+       status para inativo e removendo a inscrição dos usuários participantes.
+       Valida o ID do torneio antes de finalizar.
+
+       :return: None
+    """
     print('[V] Voltar para o menu inicial')
     idTorneio = str(input("Digite o ID do torneio que quer finalizar: "))
     gerenciarEscolha(idTorneio, "finalizarTorneio")
