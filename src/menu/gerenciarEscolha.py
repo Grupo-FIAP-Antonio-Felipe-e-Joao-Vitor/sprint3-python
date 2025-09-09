@@ -117,6 +117,10 @@ def gerenciarEscolha(escolha, menu):
                 limparTerminal()
                 from src.torneios.criarTorneios import criarTorneios
                 criarTorneios()
+            case "3":
+                limparTerminal()
+                from src.torneios.finalizarTorneio import finalizarTorneio
+                finalizarTorneio()
             case "v":
                 limparTerminal()
                 from src.menu.menuPrincipal import menuPrincipal
@@ -171,3 +175,9 @@ def gerenciarEscolha(escolha, menu):
                 limparTerminal()
                 from src.menu.menuTorneios import menuTorneios
                 menuTorneios()
+    if menu == "finalizarTorneio":
+        match escolha.lower():
+            case "v":
+                limparTerminal()
+                from src.menu.gerenciarTorneios import gerenciarTorneios
+                gerenciarTorneios()

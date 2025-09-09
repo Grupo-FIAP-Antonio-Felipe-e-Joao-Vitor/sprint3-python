@@ -30,7 +30,7 @@ def criarTorneios():
 
     novoTorneioId = len(torneios) + 1
 
-    novoTorneio = {"id": novoTorneioId, "times": qtdTimes, "jogadoras": qtdJogadoras, "ativo": True, "ocorreraEm": ocorreraEm}
+    novoTorneio = {"id": novoTorneioId, "times": qtdTimes, "jogadoras": qtdJogadoras, "ativo": True, "ocorreraEm": ocorreraEm, "usuariosInscritos": []}
     torneios.append(novoTorneio)
 
     print("Torneio criado com sucesso!")

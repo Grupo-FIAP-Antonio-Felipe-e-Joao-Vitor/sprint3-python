@@ -6,6 +6,7 @@ from src.dados.torneios import torneios
 from src.menu.gerenciarEscolha import gerenciarEscolha
 from src.menu.limparTerminal import limparTerminal
 from src.torneios.idValido import idValido
+import time
 
 
 def menuInscricaoTorneio():
@@ -35,7 +36,7 @@ def menuInscricaoTorneio():
 
         else:
             limparTerminal()
-            print(f"Esse é um torneio que envolve ${torneioEscolhido["times"]} equipes de ${torneioEscolhido["jogadoras"]} jogadoras")
+            print(f"Esse é um torneio que envolve {torneioEscolhido["times"]} equipes de {torneioEscolhido["jogadoras"]} jogadoras")
             print("[1] Se inscrever sozinho")
             print("[2] Se inscrever com um time completo")
             print("[V] Voltar para o menu inicial")
@@ -44,6 +45,7 @@ def menuInscricaoTorneio():
                 limparTerminal()
                 print("Inscrição feita com sucesso.")
                 usuarioLogado[0]["inscrito"] = idTorneioEscolhido
+                torneioEscolhido["usuariosInscritos"].append(usuarioLogado[0]["email"])
                 input("Pressione <ENTER> para voltar")
                 gerenciarEscolha("v", "menuInscricaoTorneio")
             if escolha == "2":
@@ -51,6 +53,7 @@ def menuInscricaoTorneio():
                 print("[V] Voltar para o menu inicial")
                 print(f"{usuarioLogado[0]["nome"]} será o capitão do time.")
                 print("Insira as informações das demais jogadoras.")
+                timeFormado = [usuarioLogado[0]["email"]]
                 for jogadora in range(int(torneioEscolhido["jogadoras"]) - 1):
                     nomeJogadora = str(input(f"Nome da {jogadora + 1}ª jogadora: "))
                     gerenciarEscolha(nomeJogadora, "menuInscricaoTorneio")
@@ -63,9 +66,16 @@ def menuInscricaoTorneio():
                     while emailValido(emailJogadora) == False:
                         emailJogadora = str(input(f"Digite um email válido da {jogadora + 1}ª jogadora: "))
                         gerenciarEscolha(emailJogadora, "menuInscricaoTorneio")
-
+                    timeFormado.append(emailJogadora)
                 print("Time inscrito com sucesso.")
                 usuarioLogado[0]["inscrito"] = idTorneioEscolhido
+                torneioEscolhido["usuariosInscritos"].append(timeFormado)
                 print(f"{usuarioLogado[0]["nome"]} receberá um email avisando sobre o local do torneio")
                 input("Pressione <ENTER> para voltar")
                 gerenciarEscolha("v", "menuInscricaoTorneio")
+
+            else:
+                print("Escolha inválida. Tente novamente.")
+                time.sleep(1)
+                limparTerminal()
+                menuInscricaoTorneio()
