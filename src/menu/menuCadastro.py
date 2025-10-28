@@ -4,7 +4,7 @@ from src.cadastro.nomeValido import nomeValido
 from src.cadastro.emailValido import emailValido
 from src.cadastro.senhaValida import senhaValida
 from src.cadastro.idadeValida import idadeValida
-from src.dados.usuarios import usuarios, emailUsuarios, senhaUsuarios
+from src.dados.data import lerInfos, escreverInfos
 
 def menuCadastro() -> None:
     """
@@ -17,6 +17,8 @@ def menuCadastro() -> None:
     cabecalho("CADASTRE-SE")
 
     idade = ""
+
+    usuarios = lerInfos("src/dados/usuarios.json")
 
     print("[V] - Voltar para o menu inicial")
 
@@ -37,13 +39,17 @@ def menuCadastro() -> None:
         email = str(input("Digite um email válido (ex: email@email.com): "))
         gerenciarEscolha(email, "menuCadastro")
 
-    while (email in emailUsuarios):
+    emailUsado = next((u for u in usuarios if u["email"] == email), None)
+
+    while (emailUsado):
         print("Este email já está sendo usado.")
         email = input("Digite outro email: ")
         gerenciarEscolha(email, "menuCadastro")
         while (emailValido(email) == False):
             email = str(input("Digite um email válido (ex: email@email.com): "))
             gerenciarEscolha(email, "menuCadastro")
+            emailUsado = next((u for u in usuarios if u["email"] == email), None)
+        emailUsado = next((u for u in usuarios if u["email"] == email), None)
 
     senha = str(input("Digite sua senha: "))
     gerenciarEscolha(senha, "menuCadastro")
@@ -54,8 +60,7 @@ def menuCadastro() -> None:
 
     novoUsuario = {"nome": nome, "idade": idade, "email": email, "senha": senha, "role": "user", "inscrito": None}
     usuarios.append(novoUsuario)
-    emailUsuarios.append(email)
-    senhaUsuarios.append(senha)
+    escreverInfos("src/dados/usuarios.json", usuarios)
     print("Usuário cadastrado com sucesso!")
     input("Pressione <ENTER> para voltar")
     gerenciarEscolha("v", "menuCadastro")

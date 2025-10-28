@@ -1,4 +1,4 @@
-from src.dados.torneios import torneios
+from src.dados.data import lerInfos
 
 
 def idValido(id: str | int) -> bool:
@@ -9,6 +9,9 @@ def idValido(id: str | int) -> bool:
         :param id: ID do torneio a ser verificado.
         :return: True se o ID for válido, False caso contrário.
     """
+
+    torneios = lerInfos("src/dados/torneios.json")
+
     try:
         id = int(id)
         for torneio in torneios:

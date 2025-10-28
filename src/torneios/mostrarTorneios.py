@@ -1,5 +1,5 @@
 from src.menu.cabecalho import cabecalho
-from src.dados.torneios import torneios
+from src.dados.data import lerInfos
 from src.menu.gerenciarEscolha import gerenciarEscolha
 
 
@@ -15,6 +15,8 @@ def mostrarTorneios(painelADM: bool = False) -> None:
     """
 
     cabecalho("TORNEIOS")
+
+    torneios = lerInfos("src/dados/torneios.json")
 
     if len(torneios) > 0:
         print(f"{"ID":<10} {"TIMES":<10} {"JOGADORAS POR TIME":<25} {"STATUS":<15} {"DATA DO TORNEIO":<20} {"INSCRITOS":<15} ")

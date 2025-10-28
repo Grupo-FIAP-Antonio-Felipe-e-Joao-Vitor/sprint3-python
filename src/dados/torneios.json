@@ -1,0 +1,10 @@
+[
+    {
+        "id": 1,
+        "times": 8,
+        "jogadoras": 5,
+        "ativo": true,
+        "ocorreraEm": "9/10",
+        "usuariosInscritos": []
+    }
+]

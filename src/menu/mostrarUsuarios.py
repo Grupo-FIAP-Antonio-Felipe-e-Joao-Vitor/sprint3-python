@@ -1,4 +1,4 @@
-from src.dados.usuarios import usuarios
+from src.dados.data import lerInfos
 from src.menu.cabecalho import cabecalho
 from src.menu.gerenciarEscolha import gerenciarEscolha
 
@@ -12,6 +12,9 @@ def mostrarUsuarios() -> None:
         :return: None
     """
     cabecalho("USUARIOS CADASTRADOS")
+
+    usuarios = lerInfos("src/dados/usuarios.json")
+
     print(f"{"NOME":<20} {"IDADE":<6} {"EMAIL":<20} {"TIPO DE USUARIO":<20} {"INSCRIÇÕES":<20}")
     print("-"*80)
     for usuario in usuarios:

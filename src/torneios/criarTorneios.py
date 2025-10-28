@@ -1,5 +1,5 @@
 from src.menu.cabecalho import cabecalho
-from src.dados.torneios import torneios
+from src.dados.data import lerInfos, escreverInfos
 from src.menu.gerenciarEscolha import gerenciarEscolha
 from src.torneios.dataValida import dataValida
 from src.torneios.qtdValida import qtdValida
@@ -16,6 +16,7 @@ def criarTorneios() -> None:
 
     cabecalho("CRIAR TORNEIO")
 
+    torneios = lerInfos("src/dados/torneios.json")
     print("[V] - Voltar para o menu inicial")
 
     qtdTimes = str(input("Digite a quantidade de times que deseja: "))
@@ -40,6 +41,7 @@ def criarTorneios() -> None:
 
     novoTorneio = {"id": novoTorneioId, "times": qtdTimes, "jogadoras": qtdJogadoras, "ativo": True, "ocorreraEm": ocorreraEm, "usuariosInscritos": []}
     torneios.append(novoTorneio)
+    escreverInfos("src/dados/torneios.json", torneios)
 
     print("Torneio criado com sucesso!")
     input("Pressione <ENTER> para voltar")

@@ -1,4 +1,4 @@
-from src.dados.usuarios import usuarioLogado
+from src.dados.data import usuarioLogado
 from src.menu.cabecalho import cabecalho
 from src.menu.gerenciarEscolha import gerenciarEscolha
 

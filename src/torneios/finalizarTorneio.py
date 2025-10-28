@@ -1,7 +1,6 @@
-from src.dados.usuarios import usuarios
+from src.dados.data import lerInfos, escreverInfos
 from src.menu.gerenciarEscolha import gerenciarEscolha
 from src.torneios.idValido import idValido
-from src.dados.torneios import torneios
 
 
 def finalizarTorneio() -> None:
@@ -12,6 +11,10 @@ def finalizarTorneio() -> None:
 
        :return: None
     """
+
+    torneios = lerInfos("src/dados/torneios.json")
+    usuarios = lerInfos("src/dados/usuarios.json")
+
     print('[V] Voltar para o menu inicial')
     idTorneio = str(input("Digite o ID do torneio que quer finalizar: "))
     gerenciarEscolha(idTorneio, "finalizarTorneio")
@@ -34,5 +37,7 @@ def finalizarTorneio() -> None:
             else:
                 usuario["inscrito"] = usuario["inscrito"]
 
+            escreverInfos("src/dados/torneios.json", torneios)
+            escreverInfos("src/dados/usuarios.json", usuarios)
         input("Pressione <ENTER> para voltar")
         gerenciarEscolha("v", "finalizarTorneio")

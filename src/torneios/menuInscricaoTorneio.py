@@ -1,8 +1,7 @@
 from src.cadastro.emailValido import emailValido
 from src.cadastro.nomeValido import nomeValido
 from src.menu.cabecalho import cabecalho
-from src.dados.usuarios import usuarioLogado
-from src.dados.torneios import torneios
+from src.dados.data import lerInfos, escreverInfos, usuarioLogado
 from src.menu.gerenciarEscolha import gerenciarEscolha
 from src.menu.limparTerminal import limparTerminal
 from src.torneios.idValido import idValido
@@ -20,6 +19,11 @@ def menuInscricaoTorneio() -> None:
     """
 
     cabecalho("INSCRIÇÕES")
+
+    torneios = lerInfos("src/dados/torneios.json")
+    usuarios = lerInfos("src/dados/usuarios.json")
+
+    usuario = next((u for u in usuarios if u["email"] == usuarioLogado[0]["email"]), None)
 
     if usuarioLogado[0]["inscrito"] != None:
         print("Você já está participando de um torneio.")
@@ -54,7 +58,10 @@ def menuInscricaoTorneio() -> None:
                 limparTerminal()
                 print("Inscrição feita com sucesso.")
                 usuarioLogado[0]["inscrito"] = idTorneioEscolhido
+                usuario["inscrito"] = idTorneioEscolhido
                 torneioEscolhido["usuariosInscritos"].append(usuarioLogado[0]["email"])
+                escreverInfos("src/dados/torneios.json", torneios)
+                escreverInfos("src/dados/usuarios.json", usuarios)
                 input("Pressione <ENTER> para voltar")
                 gerenciarEscolha("v", "menuInscricaoTorneio")
             if escolha == "2":
@@ -78,10 +85,14 @@ def menuInscricaoTorneio() -> None:
                     timeFormado.append(emailJogadora)
                 print("Time inscrito com sucesso.")
                 usuarioLogado[0]["inscrito"] = idTorneioEscolhido
+                usuario["inscrito"] = idTorneioEscolhido
                 torneioEscolhido["usuariosInscritos"].append(timeFormado)
+                escreverInfos("src/dados/torneios.json", torneios)
+                escreverInfos("src/dados/usuarios.json", usuarios)
                 print(f"{usuarioLogado[0]["nome"]} receberá um email avisando sobre o local do torneio")
                 input("Pressione <ENTER> para voltar")
                 gerenciarEscolha("v", "menuInscricaoTorneio")
+
 
             else:
                 print("Escolha inválida. Tente novamente.")

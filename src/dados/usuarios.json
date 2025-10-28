@@ -1,0 +1,18 @@
+[
+    {
+        "nome": "admin",
+        "idade": 18,
+        "email": "admin@admin.com",
+        "senha": "Admin@1234",
+        "role": "adm",
+        "inscrito": null
+    },
+    {
+        "nome": "Antonio Neto",
+        "idade": "18",
+        "email": "teste@teste.com",
+        "senha": "Teste@1234",
+        "role": "user",
+        "inscrito": null
+    }
+]
