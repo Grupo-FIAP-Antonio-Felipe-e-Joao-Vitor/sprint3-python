@@ -29,7 +29,7 @@
 
 - Se inscrever em torneios que estão em andamento pelo ID
 
-    - Se inscrever um time
+    - Se inscrever com um time
 
     - Se inscrever sozinho
 
